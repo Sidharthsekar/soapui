@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7fb5cd84-9cc1-4a5d-bf87-3d5bb4d84eb8" activeEnvironment="Default" name="SoapDevOps" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="02ea8d0f-1cbd-409c-8e19-f9e6800f69de" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://staging.abbviebrandconsumer.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://staging.abbviebrandconsumer.com</con:endpoint></con:endpoints><con:resource name="Registration" path="/BrandAPIGateway/api/DSA/Registration" id="561631da-4c98-47c0-9c4d-f1f2f7869ea6"><con:settings/><con:parameters><con:parameter><con:name>Content-Type</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>x-api-version</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Authorization</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>AppId</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>origin-name</con:name><con:value/><con:style>HEADER</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Registration 1" id="5401ea2d-9dd6-4c87-8fca-8ec77585c644" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:reg="https://staging.abbviebrandconsumer.com/BrandAPIGateway/api/DSA/Registration">reg:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="25129f43-0e81-4e12-abef-8c05d4bd02a7" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://staging.abbviebrandconsumer.com</con:endpoint><con:request>{
+  "DSARegistration": {
+    "RegistrationType": "AS Registration",
+    "Consumer": {
+      "FirstName": "Cordelia",
+      "LastName": "Storment",
+      "MiddleName": null,
+      "DateOfBirth": "02/12/1991",
+      "Gender": "MALE"
+    },
+    "ConsumerEmail": { 
+      "EmailAddress": "cordelia_storment@test.com"
+    },
+    "ConsumerAddress": {
+      "AddressLine1": "393 Hammond Dr",
+      "AddressLine2": "Cowesett Ave",
+      "City": "Lafayette",
+      "State": "LA",
+      "Zipcode": "70506"
+    },
+    "ConsumerPhone": { 
+      "PhoneNumber": "6015206359" 
+    },
+    "PhysicianSpecialty": {
+     "SpecialtyList":["10222","10440"]
+    },
+    "ConsumerIndication": { 
+     "PrimaryIndicationId": [
+     "5"
+     ]
+    },
+    "MedicationHistory": {
+      "IsCurrentlyTaking":"True",
+      "CurrentMedicationList": ["10179","10194"]
+    },
+    "CampaignQuestionnaire": {
+      "QuestionResponse": [
+        {
+          "QuestionId": "6C6CC078-8733-4EAA-B19B-9A0700F9AB37",
+          "QuestionAnswer": ["FC984FCB-E55B-4B4C-9227-9A0700F9BD4A"],
+          "ResponseText":[]
+        },
+        {
+          "QuestionId": "F4F54BB0-C60E-49DB-9AC1-9A0700FA1DFD",
+          "QuestionAnswer":["33B8F910-5EE9-441B-A0CC-9A0700FA55D6"],
+           "ResponseText":[]
+        }
+        
+   ]
+    }
+  }
+}</con:request><con:originalUri>https://staging.abbviebrandconsumer.com/BrandAPIGateway/api/DSA/Registration</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="Authorization" value="Basic SHVtaXJhX0NvbV9Vc2VyOkh1bV45IWEoY2UkJA== "/>
+  <con:entry key="AppId" value="1"/>
+  <con:entry key="x-api-version" value="1"/>
+  <con:entry key="origin-name" value="HUMAPIWeb"/>
+  <con:entry key="Content-Type" value="application/json"/>
+</con:parameters><con:parameterOrder><con:entry>Content-Type</con:entry><con:entry>x-api-version</con:entry><con:entry>Authorization</con:entry><con:entry>AppId</con:entry><con:entry>origin-name</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="ec39b8aa-ddd7-4584-b280-00da1d11c880" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="999dc354-0402-4bd2-9fac-a90530205d10" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" id="4c8b8e4c-cd4a-4e98-aa54-b767cee27ac0"><con:settings/><con:config><script>import SoapUiDevOps.DevOpsSoap.App
+
+assert App.checkOne()== "Data transfered successfully - static"
+
+testRunner.fail("Data fecth aagala da");
+
+//assert true//context.expand('${#Project#message}') == 2; 
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
